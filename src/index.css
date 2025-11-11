@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .elegant-heading {
+    @apply font-elegant text-4xl md:text-6xl font-bold text-gray-800;
+  }
+  
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-12 md:py-20;
+  }
+  
+  .card-shadow {
+    @apply shadow-lg hover:shadow-xl transition-shadow duration-300;
+  }
+  
+  .gradient-bg {
+    background: linear-gradient(135deg, #fef7f0 0%, #fffbeb 50%, #fef3c7 100%);
+  }
+  
+  .floral-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f4a261' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .sparkle-animation {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  
+  .bounce-slow {
+    animation: bounce 3s infinite;
+  }
+  
+  .rotate-slow {
+    animation: spin 8s linear infinite;
+  }
+  
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes sparkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+  
+  @keyframes pulse-glow {
+    0% { box-shadow: 0 0 5px rgba(244, 162, 97, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(244, 162, 97, 0.8), 0 0 30px rgba(251, 191, 36, 0.6); }
+  }
+}
