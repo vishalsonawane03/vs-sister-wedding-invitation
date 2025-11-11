@@ -8,19 +8,19 @@ const Gallery = () => {
   const galleryImages = [
     {
       id: 1,
-      src: "./src/assets/images/gallery/img_1.jpg",
+      src: "/images/gallery/img_1.jpg",
       alt: "Beautiful Moment 1",
       caption: "A precious moment captured"
     },
     {
       id: 2,
-      src: "./src/assets/images/gallery/img_2.jpg",
+      src: "/images/gallery/img_2.jpg",
       alt: "Beautiful Moment 2",
       caption: "Love and joy in every frame"
     },
     {
       id: 3,
-      src: "./src/assets/images/gallery/img_3.jpg",
+      src: "/images/gallery/img_3.jpg",
       alt: "Beautiful Moment 3",
       caption: "Memories to cherish forever"
     }

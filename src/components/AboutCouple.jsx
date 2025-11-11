@@ -18,7 +18,7 @@ const AboutCouple = () => {
             <div className="relative mb-8">
               <div className="w-64 h-64 mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-peach-200">
                 <img 
-                  src="./src/assets/images/couple/bridg.jpg" 
+                  src="/images/couple/bridg.jpg" 
                   alt="Gaytri Patil - The Beautiful Bride"
                   className="w-full h-full object-cover"
                 />
@@ -65,7 +65,7 @@ const AboutCouple = () => {
             <div className="relative mb-8">
               <div className="w-64 h-64 mx-auto rounded-full overflow-hidden shadow-2xl border-4 border-gold-200">
                 <img 
-                  src="./src/assets/images/couple/groom.jpg" 
+                  src="/images/couple/groom.jpg" 
                   alt="Jignesh Patil - The Handsome Groom"
                   className="w-full h-full object-cover"
                 />

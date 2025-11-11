@@ -42,7 +42,7 @@ const LandingSection = () => {
         <div 
           className="w-full h-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('./src/assets/images/couple/background_img.jpg')`
+            backgroundImage: `url('/images/couple/background_img.jpg')`
           }}
         ></div>
         
