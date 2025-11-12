@@ -123,7 +123,7 @@ const EventDetails = () => {
             <div className="space-y-12">
               {events.map((event, index) => (
                 <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                  <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-5' : 'text-left pl-5'}`}>
                     <div className="bg-white rounded-2xl p-6 card-shadow">
                       <h4 className="font-elegant text-xl text-gray-800 mb-2">{event.name}</h4>
                       <p className="text-gray-600 mb-1">{event.date}</p>
@@ -131,8 +131,8 @@ const EventDetails = () => {
                     </div>
                   </div>
                   
-                  <div className="w-2/12 flex justify-center">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg ${
+                  <div className="w-2/12 flex justify-center relative z-10">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg border-4 border-white ${
                       event.color === 'peach' ? 'bg-peach-500' : 'bg-gold-500'
                     }`}>
                       {index + 1}
