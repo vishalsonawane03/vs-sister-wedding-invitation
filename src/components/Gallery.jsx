@@ -152,7 +152,7 @@ const Gallery = () => {
               We'd love to see your photos from our special day! Share them with us using the hashtag below.
             </p>
             <div className="bg-gradient-to-r from-peach-100 to-gold-100 rounded-2xl p-4 inline-block">
-              <p className="text-2xl font-elegant text-gray-800">#GaytriJigneshWedding</p>
+              <p className="text-2xl font-elegant text-gray-800">#JigneshWedsGaytri</p>
             </div>
           </div>
         </div>

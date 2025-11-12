@@ -73,7 +73,7 @@ const Footer = () => {
             <div className="text-center md:text-left">
               <p className="text-gray-300 mb-2">Share your moments with us</p>
               <div className="bg-gradient-to-r from-peach-500 to-gold-500 text-white px-4 py-2 rounded-full inline-block">
-                <span className="font-medium">#GaytriJigneshWedding</span>
+                <span className="font-medium">#JigneshWedsGaytri</span>
               </div>
             </div>
 
