@@ -279,7 +279,7 @@ Message: ${formData.message}`
                     </svg>
                     <div>
                       <p className="font-medium text-gray-800">Email</p>
-                      <p className="text-gray-600">wedding@Gaytrijignesh.com</p>
+                      <p className="text-gray-600">wedding@jigneshwedsgaytri.online</p>
                     </div>
                   </div>
                 </div>

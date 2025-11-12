@@ -39,7 +39,7 @@ const Footer = () => {
             <h4 className="text-lg font-medium mb-4">Contact</h4>
             <div className="space-y-2 text-gray-300">
               <p>+91 99211 91483</p>
-              <p>wedding@Gaytrijignesh.com</p>
+              <p>wedding@jigneshwedsgaytri.online</p>
               <div className="flex justify-center md:justify-end space-x-4 mt-4">
                 <a
                   href="https://wa.me/919921191483"
@@ -53,7 +53,7 @@ const Footer = () => {
                   </svg>
                 </a>
                 <a
-                  href="mailto:wedding@Gaytrijignesh.com"
+                  href="mailto:wedding@jigneshwedsgaytri.online"
                   className="bg-gray-600 hover:bg-gray-700 p-2 rounded-full transition-colors"
                   aria-label="Email"
                 >
