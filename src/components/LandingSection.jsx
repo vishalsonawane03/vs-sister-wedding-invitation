@@ -88,9 +88,55 @@ const LandingSection = () => {
           </p>
         </div>
 
-        {/* Wedding Date */}
+        {/* Wedding Date - Clickable to Add to Calendar */}
         <div className="mb-12 group">
-          <div className="bg-white/10 backdrop-blur-none rounded-2xl p-6 border border-white/20 shadow-xl transform transition-all duration-500 hover:scale-105 hover:bg-white/15 hover:shadow-2xl">
+          <div 
+            className="bg-white/10 backdrop-blur-none rounded-2xl p-6 border border-white/20 shadow-xl transform transition-all duration-500 hover:scale-105 hover:bg-white/15 hover:shadow-2xl cursor-pointer"
+            onClick={() => {
+              // Create calendar event details
+              const eventDetails = {
+                title: 'Gaytri & Jignesh Wedding',
+                start: '20251127T100000',
+                end: '20251127T140000',
+                description: 'Wedding ceremony of Gaytri and Jignesh',
+                location: 'Shri Vittal Rukhmini Mangal Karyalay, Nagaon Tal, Dist Dhule'
+              };
+              
+              // Detect user's platform and create appropriate calendar link
+              const userAgent = navigator.userAgent.toLowerCase();
+              const isMac = userAgent.includes('mac');
+              const isIOS = userAgent.includes('iphone') || userAgent.includes('ipad');
+              
+              if (isMac || isIOS) {
+                // For Mac/iOS users - use data URL for .ics file
+                const icsContent = `BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Wedding//Wedding Invitation//EN
+BEGIN:VEVENT
+UID:wedding-gaytri-jignesh@example.com
+DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').split('.')[0]}Z
+DTSTART:${eventDetails.start}Z
+DTEND:${eventDetails.end}Z
+SUMMARY:${eventDetails.title}
+DESCRIPTION:${eventDetails.description}
+LOCATION:${eventDetails.location}
+END:VEVENT
+END:VCALENDAR`;
+                
+                const blob = new Blob([icsContent], { type: 'text/calendar' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'gaytri-jignesh-wedding.ics';
+                link.click();
+                URL.revokeObjectURL(url);
+              } else {
+                // For other users - use Google Calendar
+                const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.title)}&dates=${eventDetails.start}/${eventDetails.end}&details=${encodeURIComponent(eventDetails.description)}&location=${encodeURIComponent(eventDetails.location)}`;
+                window.open(googleCalendarUrl, '_blank');
+              }
+            }}
+          >
             <p className="text-2xl md:text-3xl text-white font-light tracking-wide transform transition-all duration-300 group-hover:scale-110" 
                style={{
                  fontFamily: 'Playfair Display, serif',
@@ -106,56 +152,72 @@ const LandingSection = () => {
                }}>
               SAVE THE DATE
             </p>
+            
+            {/* Calendar icon hint */}
+            <div className="flex items-center justify-center mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <svg className="w-5 h-5 text-white/70 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span className="text-xs text-white/70 tracking-wide">Click to add to calendar</span>
+            </div>
           </div>
         </div>
 
-        {/* Countdown Timer */}
-        <div className="bg-white/10 backdrop-blur-none rounded-2xl p-6 border border-white/20 shadow-xl max-w-2xl mx-auto mb-16 group transform transition-all duration-500 hover:scale-105 hover:bg-white/15">
-          <h3 className="text-lg md:text-xl text-white/90 mb-6 font-light tracking-wide transform transition-all duration-300 group-hover:text-white"
-              style={{
-                fontFamily: 'Playfair Display, serif',
-                fontWeight: '400',
-                fontStyle: 'italic'
-              }}>
-            Countdown to Our Special Day
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {/* Optimized Countdown Timer */}
+        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-xl max-w-lg mx-auto mb-24 group transform transition-all duration-500 hover:scale-105 hover:bg-white/15">
+          <div className="flex items-center justify-center mb-4">
+            <span className="text-2xl animate-bounce mr-2"></span>
+            <h3 className="text-base md:text-lg text-white/90 font-light tracking-wide transform transition-all duration-300 group-hover:text-white"
+                style={{
+                  fontFamily: 'Playfair Display, serif',
+                  fontWeight: '400',
+                  fontStyle: 'italic'
+                }}>
+              Countdown to Our Special Day
+            </h3>
+            <span className="text-2xl animate-bounce ml-2" style={{animationDelay: '0.5s'}}></span>
+          </div>
+          <div className="grid grid-cols-4 gap-3">
             <div className="text-center">
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 mb-2 border border-white/30 transform transition-all duration-300 hover:scale-110 hover:bg-white/30">
-                <span className="text-2xl md:text-3xl font-light text-white" style={{fontFamily: 'Inter, sans-serif'}}>{timeLeft.days}</span>
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 mb-1 border border-white/30 transform transition-all duration-300 hover:scale-110 hover:bg-white/30 relative">
+                <span className="absolute -top-1 -right-1 text-xs animate-pulse">⏰</span>
+                <span className="text-xl md:text-2xl font-light text-white" style={{fontFamily: 'Inter, sans-serif'}}>{timeLeft.days}</span>
               </div>
-              <p className="text-white/80 text-sm font-light tracking-wide" style={{fontFamily: 'Inter, sans-serif'}}>Days</p>
+              <p className="text-white/80 text-xs font-light tracking-wide" style={{fontFamily: 'Inter, sans-serif'}}>Days</p>
             </div>
             <div className="text-center">
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 mb-2 border border-white/30 transform transition-all duration-300 hover:scale-110 hover:bg-white/30">
-                <span className="text-2xl md:text-3xl font-light text-white" style={{fontFamily: 'Inter, sans-serif'}}>{timeLeft.hours}</span>
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 mb-1 border border-white/30 transform transition-all duration-300 hover:scale-110 hover:bg-white/30 relative">
+                <span className="absolute -top-1 -right-1 text-xs animate-pulse" style={{animationDelay: '0.2s'}}>⏳</span>
+                <span className="text-xl md:text-2xl font-light text-white" style={{fontFamily: 'Inter, sans-serif'}}>{timeLeft.hours}</span>
               </div>
-              <p className="text-white/80 text-sm font-light tracking-wide" style={{fontFamily: 'Inter, sans-serif'}}>Hours</p>
+              <p className="text-white/80 text-xs font-light tracking-wide" style={{fontFamily: 'Inter, sans-serif'}}>Hours</p>
             </div>
             <div className="text-center">
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 mb-2 border border-white/30 transform transition-all duration-300 hover:scale-110 hover:bg-white/30">
-                <span className="text-2xl md:text-3xl font-light text-white" style={{fontFamily: 'Inter, sans-serif'}}>{timeLeft.minutes}</span>
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 mb-1 border border-white/30 transform transition-all duration-300 hover:scale-110 hover:bg-white/30 relative">
+                <span className="absolute -top-1 -right-1 text-xs animate-pulse" style={{animationDelay: '0.4s'}}>⌛</span>
+                <span className="text-xl md:text-2xl font-light text-white" style={{fontFamily: 'Inter, sans-serif'}}>{timeLeft.minutes}</span>
               </div>
-              <p className="text-white/80 text-sm font-light tracking-wide" style={{fontFamily: 'Inter, sans-serif'}}>Minutes</p>
+              <p className="text-white/80 text-xs font-light tracking-wide" style={{fontFamily: 'Inter, sans-serif'}}>Minutes</p>
             </div>
             <div className="text-center">
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4 mb-2 border border-white/30 transform transition-all duration-300 hover:scale-110 hover:bg-white/30">
-                <span className="text-2xl md:text-3xl font-light text-white" style={{fontFamily: 'Inter, sans-serif'}}>{timeLeft.seconds}</span>
+              <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 mb-1 border border-white/30 transform transition-all duration-300 hover:scale-110 hover:bg-white/30 relative">
+                <span className="absolute -top-1 -right-1 text-xs animate-pulse" style={{animationDelay: '0.6s'}}>⚡</span>
+                <span className="text-xl md:text-2xl font-light text-white" style={{fontFamily: 'Inter, sans-serif'}}>{timeLeft.seconds}</span>
               </div>
-              <p className="text-white/80 text-sm font-light tracking-wide" style={{fontFamily: 'Inter, sans-serif'}}>Seconds</p>
+              <p className="text-white/80 text-xs font-light tracking-wide" style={{fontFamily: 'Inter, sans-serif'}}>Seconds</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+      {/* <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
         <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 border border-white/30">
           <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
-      </div>
+      </div> */}
 
       {/* Subtle floating elements */}
       <div className="absolute top-20 left-10 w-1 h-1 bg-white/40 rounded-full animate-ping" style={{animationDelay: '0s'}}></div>
