@@ -17,7 +17,7 @@ const LocationSection = () => {
           <div className="animate-slide-up">
             <div className="bg-gradient-to-br from-peach-50 to-gold-50 rounded-3xl p-8 card-shadow">
               <h3 className="text-2xl font-elegant text-gray-800 mb-6 text-center">
-                Shri Vittal Rukhmini Mangal Karyalay
+                Shri Vitthal Rukhmini Mangal Karyalay
               </h3>
               
               {/* Embedded Google Map */}
@@ -77,7 +77,7 @@ const LocationSection = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     <div>
-                      <p className="font-medium text-gray-800">Shri.Vittal Rukhmini Mangal Karyalay</p>
+                      <p className="font-medium text-gray-800">Shri.Vitthal Rukhmini Mangal Karyalay</p>
                       <p className="text-gray-600">Nagaon Tal,Dist Dhule Maharashtra 424307</p>
                     </div>
                   </div>

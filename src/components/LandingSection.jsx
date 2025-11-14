@@ -99,7 +99,7 @@ const LandingSection = () => {
                 start: '20251127T100000',
                 end: '20251127T140000',
                 description: 'Wedding ceremony of Gaytri and Jignesh',
-                location: 'Shri Vittal Rukhmini Mangal Karyalay, Nagaon Tal, Dist Dhule'
+                location: 'Shri Vitthal Rukhmini Mangal Karyalay, Nagaon Tal, Dist Dhule'
               };
               
               // Detect user's platform and create appropriate calendar link

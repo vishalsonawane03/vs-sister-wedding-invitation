@@ -24,7 +24,7 @@ const EventDetails = () => {
       name: "Wedding Ceremony",
       date: "27th November 2025",
       time: "10:00 AM - 2:00 PM",
-      venue: "Shri Vittal Rukhmini Mandir Mangal Karyalay",
+      venue: "Shri Vitthal Rukhmini Mandir Mangal Karyalay",
       address: "Nagaon Tal,Dist Dhule.",
       description: "The sacred union of two souls in the presence of family, friends, and divine blessings.",
       icon: "💒",
