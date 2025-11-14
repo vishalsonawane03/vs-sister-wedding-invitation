@@ -86,7 +86,7 @@ const AboutCouple = () => {
                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20 6L9 17l-5-5"/>
                 </svg>
-                Son of Mrs. Manisha & Mr. Chotulal Devram Bhadane
+                Son of Mrs. Manisha & Mr. Chhotulal Devram Bhadane
               </div>
               {/* <div className="flex items-center text-sm text-gray-600 mt-2">
                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
