@@ -121,9 +121,9 @@ const AboutCouple = () => {
             </p>
             <div className="flex justify-center mt-8">
               <div className="flex items-center space-x-4">
-                <div className="w-3 h-3 bg-peach-400 rounded-full"></div>
-                <div className="w-6 h-6 bg-gold-400 rounded-full"></div>
-                <div className="w-3 h-3 bg-peach-400 rounded-full"></div>
+                <div className="w-3 h-3 bg-peach-400 rounded-full animate-pulse"></div>
+                <div className="w-6 h-6 bg-gold-400 rounded-full animate-pulse"></div>
+                <div className="w-3 h-3 bg-peach-400 rounded-full animate-pulse"></div>
               </div>
             </div>
           </div>

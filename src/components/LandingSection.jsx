@@ -175,7 +175,7 @@ END:VCALENDAR`;
                 }}>
               Countdown to Our Special Day
             </h3>
-            <span className="text-2xl animate-bounce ml-2" style={{animationDelay: '0.5s'}}></span>
+            <span className="text-1xl animate-pulse ml-2" style={{animationDelay: '0.5s'}}></span>
           </div>
           <div className="grid grid-cols-4 gap-3">
             <div className="text-center">
